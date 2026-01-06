@@ -60,7 +60,7 @@ export default function CTA() {
   }
 
   return (
-    <section id="contact" className="py-24 md:py-32 relative overflow-hidden bg-slate-900">
+    <section id="contact" className="min-h-screen relative overflow-hidden bg-slate-900 flex items-center">
       {/* 3D Building Background */}
       <Building3D isHovered={buttonHovered} />
 
