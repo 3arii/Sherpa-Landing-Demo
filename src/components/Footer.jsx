@@ -27,11 +27,11 @@ export default function Footer() {
           </div>
 
           <motion.a
-            href="mailto:hello@sherpa.com"
+            href="mailto:deniz@sherpalead.com"
             className="text-muted-foreground hover:text-primary text-sm transition-colors"
             whileHover={{ scale: 1.05 }}
           >
-            hello@sherpa.com
+            deniz@sherpalead.com
           </motion.a>
         </div>
       </div>
