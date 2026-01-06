@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button'
 import { ShimmerButton } from '@/components/ui/shimmer-button'
 import { LayoutTextFlip } from '@/components/ui/layout-text-flip'
 import { ArrowRight, TrendingUp, ChevronDown } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { motion, LayoutGroup } from 'framer-motion'
 
 const tenantQualities = ["Reliable", "High-Earning", "Long-Term", "Qualified", "Verified"]
 
@@ -28,22 +28,24 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           {/* Main Headline with LayoutTextFlip */}
-          <div className="flex flex-col items-center justify-center gap-2 mb-6">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
-              Find
-            </h1>
-            <motion.div layout className="flex items-center justify-center">
-              <LayoutTextFlip
-                text=""
-                words={tenantQualities}
-                duration={3000}
-                wordClassName="text-4xl sm:text-5xl md:text-6xl lg:text-7xl bg-cyan-600 text-white dark:bg-cyan-600 dark:text-white"
-              />
+          <LayoutGroup>
+            <motion.div layout className="flex flex-col items-center justify-center gap-2 mb-6">
+              <motion.div layout className="flex items-center justify-center gap-3">
+                <motion.h1 layout className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
+                  Find
+                </motion.h1>
+                <LayoutTextFlip
+                  text=""
+                  words={tenantQualities}
+                  duration={3000}
+                  wordClassName="text-4xl sm:text-5xl md:text-6xl lg:text-7xl bg-cyan-600 text-white dark:bg-cyan-600 dark:text-white"
+                />
+              </motion.div>
+              <motion.h1 layout className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
+                Tenants
+              </motion.h1>
             </motion.div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
-              Tenants
-            </h1>
-          </div>
+          </LayoutGroup>
 
           {/* Subheadline */}
           <motion.p
