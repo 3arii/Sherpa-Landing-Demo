@@ -7,16 +7,22 @@ const features = [
     icon: Users,
     title: 'Pre-Screened Tenants',
     description: 'Every tenant is vetted for credit, income, rental history, and background before reaching you.',
+    stat: '100%',
+    statLabel: 'Pre-Screened',
   },
   {
     icon: Shield,
     title: 'Verified & Qualified',
     description: 'We verify employment, references, and rental history to ensure only quality applicants.',
+    stat: '3x*',
+    statLabel: 'Higher Close Rate',
   },
   {
     icon: Clock,
     title: 'Fast Placement',
     description: 'Fill vacancies faster with our network of ready-to-move tenants actively searching.',
+    stat: '48h*',
+    statLabel: 'Avg. Time to First Lead',
   }
 ]
 
@@ -87,9 +93,24 @@ export default function ValueProps() {
                     {feature.title}
                   </h3>
 
-                  <p className="text-muted-foreground leading-relaxed grow">
+                  <p className="text-muted-foreground leading-relaxed grow mb-6">
                     {feature.description}
                   </p>
+
+                  <div className="pt-4 border-t border-border/50">
+                    <motion.div
+                      className="text-3xl font-bold text-primary"
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.3 + index * 0.1, type: "spring", stiffness: 200 }}
+                    >
+                      {feature.stat}
+                    </motion.div>
+                    <div className="text-sm text-muted-foreground mt-1">
+                      {feature.statLabel}
+                    </div>
+                  </div>
                 </div>
               </MagicCard>
             </motion.div>

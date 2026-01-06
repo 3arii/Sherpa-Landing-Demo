@@ -13,12 +13,12 @@ export default function Hero() {
       <div
         className="absolute inset-0 -z-10"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80')",
+          backgroundImage: "url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1920&q=80')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/40 to-white/90" />
       </div>
 
       <div className="container mx-auto px-6 text-center pt-20">
@@ -95,7 +95,7 @@ export default function Hero() {
           className="flex flex-wrap justify-center items-center gap-8 md:gap-16"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          transition={{ duration: 0.6, delay: 0.9 }}
         >
           <motion.div
             className="text-center"
@@ -103,7 +103,7 @@ export default function Hero() {
           >
             <div className="flex items-center justify-center gap-1 text-3xl md:text-4xl font-bold text-foreground">
               <TrendingUp className="w-6 h-6 text-cyan-600" />
-              <span>3x</span>
+              <span>3x*</span>
             </div>
             <p className="text-sm text-muted-foreground mt-1">Higher Close Rate</p>
           </motion.div>
@@ -114,7 +114,7 @@ export default function Hero() {
             className="text-center"
             whileHover={{ scale: 1.05 }}
           >
-            <div className="text-3xl md:text-4xl font-bold text-foreground">48h</div>
+            <div className="text-3xl md:text-4xl font-bold text-foreground">48h*</div>
             <p className="text-sm text-muted-foreground mt-1">To First Lead</p>
           </motion.div>
 
@@ -128,6 +128,8 @@ export default function Hero() {
             <p className="text-sm text-muted-foreground mt-1">Pre-Screened</p>
           </motion.div>
         </motion.div>
+
+        <p className="text-xs text-muted-foreground mt-4">*Based on average results</p>
 
         {/* Scroll Hint */}
         <motion.a

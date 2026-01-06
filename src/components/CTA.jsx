@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { BorderBeam } from '@/components/ui/border-beam'
-import { DotPattern } from '@/components/ui/dot-pattern'
+import { Building3D } from '@/components/ui/building-3d'
 import { cn } from '@/lib/utils'
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -17,6 +17,7 @@ export default function CTA() {
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const [buttonHovered, setButtonHovered] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -59,12 +60,12 @@ export default function CTA() {
   }
 
   return (
-    <section id="contact" className="py-24 md:py-32 relative overflow-hidden">
-      <DotPattern
-        className={cn(
-          "absolute inset-0 -z-10 [mask-image:radial-gradient(500px_circle_at_center,white,transparent)]"
-        )}
-      />
+    <section id="contact" className="py-24 md:py-32 relative overflow-hidden bg-slate-900">
+      {/* 3D Building Background */}
+      <Building3D isHovered={buttonHovered} />
+
+      {/* Dark overlay for better form readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-slate-900/30 pointer-events-none" />
 
       {/* Floating sparkle decorations */}
       <motion.div
@@ -98,7 +99,7 @@ export default function CTA() {
           transition={{ duration: 0.7 }}
         >
           <motion.div
-            className="relative rounded-3xl bg-card border border-border p-8 md:p-12 shadow-2xl shadow-primary/5 overflow-hidden"
+            className="relative rounded-3xl bg-slate-800/90 backdrop-blur-sm border border-slate-700/50 p-8 md:p-12 shadow-2xl shadow-black/30 overflow-hidden"
             whileHover={{ scale: 1.01 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
@@ -117,10 +118,10 @@ export default function CTA() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
               >
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-5">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5">
                   Ready to Fill Your Vacancies?
                 </h2>
-                <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+                <p className="text-lg text-slate-300 max-w-xl mx-auto">
                   Start receiving qualified tenant applications today.
                 </p>
               </motion.div>
@@ -142,8 +143,8 @@ export default function CTA() {
                     >
                       <CheckCircle2 className="w-10 h-10 text-green-600" />
                     </motion.div>
-                    <h3 className="text-2xl font-semibold text-foreground mb-2">Thanks for reaching out!</h3>
-                    <p className="text-muted-foreground text-lg">We'll be in touch within 24 hours.</p>
+                    <h3 className="text-2xl font-semibold text-white mb-2">Thanks for reaching out!</h3>
+                    <p className="text-slate-300 text-lg">We'll be in touch within 24 hours.</p>
                   </motion.div>
                 ) : (
                   <motion.form
@@ -167,7 +168,7 @@ export default function CTA() {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="h-14 px-5 text-base bg-background"
+                        className="h-14 px-5 text-base bg-slate-900/80 border-slate-600 text-white placeholder:text-slate-400"
                       />
                     </motion.div>
                     <motion.div
@@ -183,7 +184,7 @@ export default function CTA() {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="h-14 px-5 text-base bg-background"
+                        className="h-14 px-5 text-base bg-slate-900/80 border-slate-600 text-white placeholder:text-slate-400"
                       />
                     </motion.div>
                     <motion.div
@@ -198,7 +199,7 @@ export default function CTA() {
                         placeholder="Phone Number"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="h-14 px-5 text-base bg-background"
+                        className="h-14 px-5 text-base bg-slate-900/80 border-slate-600 text-white placeholder:text-slate-400"
                       />
                     </motion.div>
                     <motion.div
@@ -213,7 +214,7 @@ export default function CTA() {
                         placeholder="Company (Optional)"
                         value={formData.company}
                         onChange={handleChange}
-                        className="h-14 px-5 text-base bg-background"
+                        className="h-14 px-5 text-base bg-slate-900/80 border-slate-600 text-white placeholder:text-slate-400"
                       />
                     </motion.div>
                     <motion.div
@@ -227,6 +228,8 @@ export default function CTA() {
                         size="lg"
                         disabled={loading}
                         className="w-full h-14 text-lg font-semibold shadow-lg shadow-primary/25 group disabled:opacity-70"
+                        onMouseEnter={() => setButtonHovered(true)}
+                        onMouseLeave={() => setButtonHovered(false)}
                       >
                         {loading ? (
                           <>
@@ -260,7 +263,7 @@ export default function CTA() {
                       </motion.p>
                     )}
                     <motion.p
-                      className="text-center text-sm text-muted-foreground pt-2"
+                      className="text-center text-sm text-slate-400 pt-2"
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
