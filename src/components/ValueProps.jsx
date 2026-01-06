@@ -1,29 +1,22 @@
 import { MagicCard } from '@/components/ui/magic-card'
-import { NumberTicker } from '@/components/ui/number-ticker'
-import { MapPin, Shield, TrendingUp } from 'lucide-react'
+import { Users, Shield, Clock } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 const features = [
   {
-    icon: MapPin,
-    title: 'Targeted Leads',
-    description: 'We find property owners actively looking for management services in your specific area and niche.',
-    stat: 95,
-    statLabel: '% Match Rate'
+    icon: Users,
+    title: 'Pre-Screened Tenants',
+    description: 'Every tenant is vetted for credit, income, rental history, and background before reaching you.',
   },
   {
     icon: Shield,
     title: 'Verified & Qualified',
-    description: 'Every lead is pre-screened for intent, budget, and property details before reaching you.',
-    stat: 100,
-    statLabel: '% Verified'
+    description: 'We verify employment, references, and rental history to ensure only quality applicants.',
   },
   {
-    icon: TrendingUp,
-    title: 'Percent of Rent',
-    description: 'We only earn when you earn. Pay a small percentage of collected rent—no upfront fees.',
-    stat: 3,
-    statLabel: '% of Rent'
+    icon: Clock,
+    title: 'Fast Placement',
+    description: 'Fill vacancies faster with our network of ready-to-move tenants actively searching.',
   }
 ]
 
@@ -51,7 +44,7 @@ const cardVariants = {
 
 export default function ValueProps() {
   return (
-    <section className="py-24 md:py-32 bg-muted/30 overflow-hidden">
+    <section id="why-sherpa" className="py-24 md:py-32 bg-muted/30 overflow-hidden">
       <div className="container mx-auto px-6">
         <motion.div
           className="text-center mb-16 md:mb-20"
@@ -64,7 +57,7 @@ export default function ValueProps() {
             Why Property Managers Choose Sherpa
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            We handle the hard work of finding qualified leads so you can focus on growing your portfolio.
+            We handle the hard work of finding quality tenants so you can focus on managing your properties.
           </p>
         </motion.div>
 
@@ -79,7 +72,7 @@ export default function ValueProps() {
             <motion.div key={index} variants={cardVariants}>
               <MagicCard
                 className="p-8 bg-card border-border/50 cursor-pointer h-full"
-                gradientColor="rgba(99, 102, 241, 0.1)"
+                gradientColor="rgba(30, 41, 59, 0.1)"
               >
                 <div className="flex flex-col h-full">
                   <motion.div
@@ -94,18 +87,9 @@ export default function ValueProps() {
                     {feature.title}
                   </h3>
 
-                  <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
+                  <p className="text-muted-foreground leading-relaxed grow">
                     {feature.description}
                   </p>
-
-                  <div className="pt-4 border-t border-border/50">
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-4xl font-bold text-primary">
-                        <NumberTicker value={feature.stat} />
-                      </span>
-                      <span className="text-lg text-muted-foreground">{feature.statLabel}</span>
-                    </div>
-                  </div>
                 </div>
               </MagicCard>
             </motion.div>

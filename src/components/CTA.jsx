@@ -11,6 +11,7 @@ export default function CTA() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     company: ''
   })
   const [submitted, setSubmitted] = useState(false)
@@ -32,6 +33,7 @@ export default function CTA() {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
+          phone: formData.phone || 'Not provided',
           company: formData.company || 'Not provided',
           _subject: `New Sherpa Lead: ${formData.name}`,
         })
@@ -73,14 +75,14 @@ export default function CTA() {
         <Sparkles className="w-8 h-8" />
       </motion.div>
       <motion.div
-        className="absolute bottom-20 right-10 text-violet-500/20"
+        className="absolute bottom-20 right-10 text-slate-500/20"
         animate={{ y: [0, 15, 0], rotate: [0, -15, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
       >
         <Sparkles className="w-10 h-10" />
       </motion.div>
       <motion.div
-        className="absolute top-1/3 right-20 text-blue-500/20"
+        className="absolute top-1/3 right-20 text-cyan-500/20"
         animate={{ y: [0, -10, 0], scale: [1, 1.1, 1] }}
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
       >
@@ -103,8 +105,8 @@ export default function CTA() {
             <BorderBeam
               size={300}
               duration={12}
-              colorFrom="#6366f1"
-              colorTo="#8b5cf6"
+              colorFrom="#1e293b"
+              colorTo="#0891b2"
             />
 
             <div className="relative z-10">
@@ -116,10 +118,10 @@ export default function CTA() {
                 transition={{ delay: 0.2 }}
               >
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-5">
-                  Ready to Grow Your Portfolio?
+                  Ready to Fill Your Vacancies?
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-                  Start scaling your business with qualified leads today.
+                  Start receiving qualified tenant applications today.
                 </p>
               </motion.div>
 
@@ -188,6 +190,21 @@ export default function CTA() {
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
+                      transition={{ delay: 0.45 }}
+                    >
+                      <Input
+                        type="tel"
+                        name="phone"
+                        placeholder="Phone Number"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        className="h-14 px-5 text-base bg-background"
+                      />
+                    </motion.div>
+                    <motion.div
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
                       transition={{ delay: 0.5 }}
                     >
                       <Input
@@ -221,7 +238,7 @@ export default function CTA() {
                           </>
                         ) : (
                           <>
-                            Get Started Free
+                            Get Started
                             <motion.span
                               className="inline-block ml-2"
                               animate={{ x: [0, 5, 0] }}
@@ -249,7 +266,7 @@ export default function CTA() {
                       viewport={{ once: true }}
                       transition={{ delay: 0.7 }}
                     >
-                      No credit card required. Start receiving leads in 48 hours.
+                      Start receiving tenant applications within days.
                     </motion.p>
                   </motion.form>
                 )}

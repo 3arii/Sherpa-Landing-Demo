@@ -1,39 +1,39 @@
-import { User, Target, CheckCircle } from 'lucide-react'
+import { Home, Search, KeyRound } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 const steps = [
   {
-    icon: User,
+    icon: Home,
     number: 1,
-    title: 'Tell Us Your Ideal Client',
-    description: 'Share your target criteria: property types, portfolio size, location, and budget range.',
-    gradient: 'from-primary/10 to-violet-500/10',
+    title: 'List Your Property',
+    description: 'Share your property details: location, unit type, amenities, and rental requirements.',
+    gradient: 'from-primary/10 to-slate-500/10',
     borderColor: 'border-primary/20',
     shadowColor: 'shadow-primary/5',
     iconColor: 'text-primary',
     badgeColor: 'bg-primary'
   },
   {
-    icon: Target,
+    icon: Search,
     number: 2,
-    title: 'We Run Targeted Campaigns',
-    description: 'Our team launches precision campaigns to find property owners actively seeking management.',
-    gradient: 'from-blue-500/10 to-primary/10',
-    borderColor: 'border-blue-500/20',
-    shadowColor: 'shadow-blue-500/5',
-    iconColor: 'text-blue-500',
-    badgeColor: 'bg-blue-500'
+    title: 'We Find Quality Tenants',
+    description: 'Our team screens and matches qualified tenants based on your specific criteria.',
+    gradient: 'from-slate-500/10 to-cyan-500/10',
+    borderColor: 'border-slate-500/20',
+    shadowColor: 'shadow-slate-500/5',
+    iconColor: 'text-slate-600',
+    badgeColor: 'bg-slate-600'
   },
   {
-    icon: CheckCircle,
+    icon: KeyRound,
     number: 3,
-    title: 'Receive Qualified Leads',
-    description: 'Get pre-screened leads delivered directly to your inbox, ready for your outreach.',
-    gradient: 'from-green-500/10 to-emerald-500/10',
-    borderColor: 'border-green-500/20',
-    shadowColor: 'shadow-green-500/5',
-    iconColor: 'text-green-500',
-    badgeColor: 'bg-green-500'
+    title: 'Sign the Lease',
+    description: 'Review pre-qualified applicants and close the deal—we handle the rest.',
+    gradient: 'from-cyan-500/10 to-teal-500/10',
+    borderColor: 'border-cyan-500/20',
+    shadowColor: 'shadow-cyan-500/5',
+    iconColor: 'text-cyan-600',
+    badgeColor: 'bg-cyan-600'
   }
 ]
 
@@ -74,7 +74,7 @@ export default function HowItWorks() {
             How It Works
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Getting started is simple. Three steps to your first qualified lead.
+            Getting started is simple. Three steps to filling your vacancy.
           </p>
         </motion.div>
 
@@ -119,16 +119,6 @@ export default function HowItWorks() {
           ))}
         </motion.div>
 
-        {/* Animated Connection Line (Desktop) */}
-        <div className="hidden md:block relative max-w-4xl mx-auto -mt-48 mb-32">
-          <motion.div
-            className="absolute top-1/2 left-[20%] right-[20%] h-0.5 bg-gradient-to-r from-primary/30 via-blue-500/30 to-green-500/30 -translate-y-1/2"
-            initial={{ scaleX: 0, opacity: 0 }}
-            whileInView={{ scaleX: 1, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.5 }}
-          />
-        </div>
       </div>
     </section>
   )
