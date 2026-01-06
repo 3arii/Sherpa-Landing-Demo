@@ -8,20 +8,18 @@ const tenantQualities = ["Reliable", "High-Earning", "Long-Term", "Qualified", "
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 -z-10"
-        style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1920&q=80')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/40 to-white/90" />
-      </div>
+    <section
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      style={{
+        backgroundImage: "url('https://images.pexels.com/photos/259950/pexels-photo-259950.jpeg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center 30%",
+      }}
+    >
+      {/* Overlay gradient - subtle fade to background at bottom */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/50 via-white/30 via-70% to-white/70" />
 
-      <div className="container mx-auto px-6 text-center pt-20">
+      <div className="relative z-10 container mx-auto px-6 text-center pt-20">
         {/* Main Headline with LayoutTextFlip */}
         <motion.div
           className="flex flex-col items-center justify-center gap-2 mb-6"
@@ -130,24 +128,24 @@ export default function Hero() {
         </motion.div>
 
         <p className="text-xs text-muted-foreground mt-4">*Based on average results</p>
-
-        {/* Scroll Hint */}
-        <motion.a
-          href="#why-sherpa"
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
-        >
-          <span className="text-sm font-medium">Scroll to explore</span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <ChevronDown className="w-6 h-6" />
-          </motion.div>
-        </motion.a>
       </div>
+
+      {/* Scroll Hint - positioned relative to section, not content */}
+      <motion.a
+        href="#why-sherpa"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 1.2 }}
+      >
+        <span className="text-sm font-medium">Scroll to explore</span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <ChevronDown className="w-6 h-6" />
+        </motion.div>
+      </motion.a>
     </section>
   )
 }

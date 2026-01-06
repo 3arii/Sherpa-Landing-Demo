@@ -61,7 +61,7 @@ const stepVariants = {
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 md:py-32 overflow-hidden">
+    <section id="how-it-works" className="py-24 md:py-32 overflow-hidden bg-muted/30">
       <div className="container mx-auto px-6">
         <motion.div
           className="text-center mb-16 md:mb-20"

@@ -116,6 +116,8 @@ export default function ValueProps() {
             </motion.div>
           ))}
         </motion.div>
+
+        <p className="text-xs text-muted-foreground text-center mt-8">*Based on average results</p>
       </div>
     </section>
   )
