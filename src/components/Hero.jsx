@@ -20,114 +20,117 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-white/50 via-white/30 via-70% to-white/70" />
 
       <div className="relative z-10 container mx-auto px-6 text-center pt-20">
-        {/* Main Headline with LayoutTextFlip */}
+        {/* Main Content Card */}
         <motion.div
-          className="flex flex-col items-center justify-center gap-2 mb-6"
+          className="bg-white/80 backdrop-blur-md rounded-3xl p-8 md:p-12 shadow-xl max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
-            Find
-          </h1>
-          <motion.div layout className="flex items-center justify-center">
-            <LayoutTextFlip
-              text=""
-              words={tenantQualities}
-              duration={3000}
-              wordClassName="text-4xl sm:text-5xl md:text-6xl lg:text-7xl bg-cyan-600 text-white dark:bg-cyan-600 dark:text-white"
-            />
-          </motion.div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
-            Tenants
-          </h1>
-        </motion.div>
+          {/* Main Headline with LayoutTextFlip */}
+          <div className="flex flex-col items-center justify-center gap-2 mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
+              Find
+            </h1>
+            <motion.div layout className="flex items-center justify-center">
+              <LayoutTextFlip
+                text=""
+                words={tenantQualities}
+                duration={3000}
+                wordClassName="text-4xl sm:text-5xl md:text-6xl lg:text-7xl bg-cyan-600 text-white dark:bg-cyan-600 dark:text-white"
+              />
+            </motion.div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
+              Tenants
+            </h1>
+          </div>
 
-        {/* Subheadline */}
-        <motion.p
-          className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          Stop dealing with vacancies. We connect property managers with{' '}
-          <span className="text-foreground font-semibold">pre-screened, qualified tenants</span> ready to sign.
-        </motion.p>
+          {/* Subheadline */}
+          <motion.p
+            className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            Stop dealing with vacancies. We connect property managers with{' '}
+            <span className="text-foreground font-semibold">pre-screened, qualified tenants</span> ready to sign.
+          </motion.p>
 
-        {/* CTA Buttons */}
-        <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-        >
-          <a href="#contact">
-            <ShimmerButton
-              className="h-14 px-8 text-lg font-semibold"
-              shimmerColor="#ffffff"
-              shimmerSize="0.1em"
-              background="linear-gradient(135deg, #1e293b 0%, #334155 100%)"
-            >
-              <span className="flex items-center gap-2">
-                Fill Your Vacancies
-                <ArrowRight className="w-5 h-5" />
-              </span>
-            </ShimmerButton>
-          </a>
-
-          <Button variant="outline" size="lg" className="h-14 px-8 text-lg font-semibold group" asChild>
-            <a href="#how-it-works" className="flex items-center gap-2">
-              See How It Works
-              <motion.span
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
+          {/* CTA Buttons */}
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <a href="#contact">
+              <ShimmerButton
+                className="h-14 px-8 text-lg font-semibold"
+                shimmerColor="#ffffff"
+                shimmerSize="0.1em"
+                background="linear-gradient(135deg, #1e293b 0%, #334155 100%)"
               >
-                →
-              </motion.span>
+                <span className="flex items-center gap-2">
+                  Fill Your Vacancies
+                  <ArrowRight className="w-5 h-5" />
+                </span>
+              </ShimmerButton>
             </a>
-          </Button>
+
+            <Button variant="outline" size="lg" className="h-14 px-8 text-lg font-semibold group bg-white/50" asChild>
+              <a href="#how-it-works" className="flex items-center gap-2">
+                See How It Works
+                <motion.span
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  →
+                </motion.span>
+              </a>
+            </Button>
+          </motion.div>
+
+          {/* Stats */}
+          <motion.div
+            className="flex flex-wrap justify-center items-center gap-6 md:gap-12 pt-6 border-t border-border/30"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.9 }}
+          >
+            <motion.div
+              className="text-center px-4"
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="flex items-center justify-center gap-1 text-2xl md:text-3xl font-bold text-foreground">
+                <TrendingUp className="w-5 h-5 text-cyan-600" />
+                <span>3x*</span>
+              </div>
+              <p className="text-sm text-muted-foreground mt-1">Higher Close Rate</p>
+            </motion.div>
+
+            <div className="w-px h-10 bg-border/50 hidden md:block" />
+
+            <motion.div
+              className="text-center px-4"
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="text-2xl md:text-3xl font-bold text-foreground">48h*</div>
+              <p className="text-sm text-muted-foreground mt-1">To First Lead</p>
+            </motion.div>
+
+            <div className="w-px h-10 bg-border/50 hidden md:block" />
+
+            <motion.div
+              className="text-center px-4"
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="text-2xl md:text-3xl font-bold text-foreground">100%</div>
+              <p className="text-sm text-muted-foreground mt-1">Pre-Screened</p>
+            </motion.div>
+          </motion.div>
+
+          <p className="text-xs text-muted-foreground mt-4">*Based on average results</p>
         </motion.div>
-
-        {/* Stats from original */}
-        <motion.div
-          className="flex flex-wrap justify-center items-center gap-8 md:gap-16"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.9 }}
-        >
-          <motion.div
-            className="text-center"
-            whileHover={{ scale: 1.05 }}
-          >
-            <div className="flex items-center justify-center gap-1 text-3xl md:text-4xl font-bold text-foreground">
-              <TrendingUp className="w-6 h-6 text-cyan-600" />
-              <span>3x*</span>
-            </div>
-            <p className="text-sm text-muted-foreground mt-1">Higher Close Rate</p>
-          </motion.div>
-
-          <div className="w-px h-12 bg-border hidden md:block" />
-
-          <motion.div
-            className="text-center"
-            whileHover={{ scale: 1.05 }}
-          >
-            <div className="text-3xl md:text-4xl font-bold text-foreground">48h*</div>
-            <p className="text-sm text-muted-foreground mt-1">To First Lead</p>
-          </motion.div>
-
-          <div className="w-px h-12 bg-border hidden md:block" />
-
-          <motion.div
-            className="text-center"
-            whileHover={{ scale: 1.05 }}
-          >
-            <div className="text-3xl md:text-4xl font-bold text-foreground">100%</div>
-            <p className="text-sm text-muted-foreground mt-1">Pre-Screened</p>
-          </motion.div>
-        </motion.div>
-
-        <p className="text-xs text-muted-foreground mt-4">*Based on average results</p>
       </div>
 
       {/* Scroll Hint - positioned relative to section, not content */}
