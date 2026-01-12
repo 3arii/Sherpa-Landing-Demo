@@ -3,18 +3,13 @@ import HowItWorks from './components/HowItWorks'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
 import { FloatingNav } from '@/components/ui/floating-navbar'
-import { HelpCircle, Mail } from 'lucide-react'
+import { HelpCircle } from 'lucide-react'
 
 const navItems = [
   {
     name: "How It Works",
     link: "#how-it-works",
     icon: <HelpCircle className="h-4 w-4" />,
-  },
-  {
-    name: "Get Started",
-    link: "#contact",
-    icon: <Mail className="h-4 w-4" />,
   },
 ]
 
