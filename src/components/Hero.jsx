@@ -1,10 +1,10 @@
 import { Button } from '@/components/ui/button'
 import { ShimmerButton } from '@/components/ui/shimmer-button'
 import { LayoutTextFlip } from '@/components/ui/layout-text-flip'
-import { ArrowRight, TrendingUp, ChevronDown } from 'lucide-react'
+import { ArrowRight, ChevronDown } from 'lucide-react'
 import { motion, LayoutGroup } from 'framer-motion'
 
-const tenantQualities = ["Reliable", "High-Earning", "Long-Term", "Qualified", "Verified"]
+const automationBenefits = ["Seamless", "Automated", "Efficient", "Smart", "Custom"]
 
 export default function Hero() {
   return (
@@ -30,19 +30,19 @@ export default function Hero() {
           {/* Main Headline with LayoutTextFlip */}
           <LayoutGroup>
             <motion.div layout className="flex flex-col items-center justify-center gap-2 mb-6">
-              <motion.div layout className="flex items-center justify-center gap-3">
-                <motion.h1 layout className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
-                  Find
-                </motion.h1>
+              <motion.div layout className="flex flex-wrap items-center justify-center gap-3">
                 <LayoutTextFlip
                   text=""
-                  words={tenantQualities}
+                  words={automationBenefits}
                   duration={3000}
                   wordClassName="text-4xl sm:text-5xl md:text-6xl lg:text-7xl bg-cyan-600 text-white dark:bg-cyan-600 dark:text-white"
                 />
+                <motion.h1 layout className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
+                  Workflows
+                </motion.h1>
               </motion.div>
               <motion.h1 layout className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
-                Tenants
+                for Real Estate
               </motion.h1>
             </motion.div>
           </LayoutGroup>
@@ -54,8 +54,8 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            Stop dealing with vacancies. We connect property managers with{' '}
-            <span className="text-foreground font-semibold">pre-screened, qualified tenants</span> ready to sign.
+            Stop wasting time on repetitive tasks. We build{' '}
+            <span className="text-foreground font-semibold">custom workflow automations</span> tailored for real estate professionals.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -73,7 +73,7 @@ export default function Hero() {
                 background="linear-gradient(135deg, #1e293b 0%, #334155 100%)"
               >
                 <span className="flex items-center gap-2">
-                  Fill Your Vacancies
+                  Automate Your Workflow
                   <ArrowRight className="w-5 h-5" />
                 </span>
               </ShimmerButton>
@@ -92,52 +92,12 @@ export default function Hero() {
             </Button>
           </motion.div>
 
-          {/* Stats */}
-          <motion.div
-            className="flex flex-wrap justify-center items-center gap-6 md:gap-12 pt-6 border-t border-border/30"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.9 }}
-          >
-            <motion.div
-              className="text-center px-4"
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="flex items-center justify-center gap-1 text-2xl md:text-3xl font-bold text-foreground">
-                <TrendingUp className="w-5 h-5 text-cyan-600" />
-                <span>3x*</span>
-              </div>
-              <p className="text-sm text-muted-foreground mt-1">Higher Close Rate</p>
-            </motion.div>
-
-            <div className="w-px h-10 bg-border/50 hidden md:block" />
-
-            <motion.div
-              className="text-center px-4"
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="text-2xl md:text-3xl font-bold text-foreground">48h*</div>
-              <p className="text-sm text-muted-foreground mt-1">To First Lead</p>
-            </motion.div>
-
-            <div className="w-px h-10 bg-border/50 hidden md:block" />
-
-            <motion.div
-              className="text-center px-4"
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="text-2xl md:text-3xl font-bold text-foreground">100%</div>
-              <p className="text-sm text-muted-foreground mt-1">Pre-Screened</p>
-            </motion.div>
-          </motion.div>
-
-          <p className="text-xs text-muted-foreground mt-4">*Based on average results</p>
         </motion.div>
       </div>
 
       {/* Scroll Hint - positioned relative to section, not content */}
       <motion.a
-        href="#why-sherpa"
+        href="#how-it-works"
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

@@ -1,24 +1,18 @@
 import Hero from './components/Hero'
-import ValueProps from './components/ValueProps'
 import HowItWorks from './components/HowItWorks'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
 import { FloatingNav } from '@/components/ui/floating-navbar'
-import { HelpCircle, Mail, Star } from 'lucide-react'
+import { HelpCircle, Mail } from 'lucide-react'
 
 const navItems = [
-  {
-    name: "Why Sherpa",
-    link: "#why-sherpa",
-    icon: <Star className="h-4 w-4" />,
-  },
   {
     name: "How It Works",
     link: "#how-it-works",
     icon: <HelpCircle className="h-4 w-4" />,
   },
   {
-    name: "Contact",
+    name: "Get Started",
     link: "#contact",
     icon: <Mail className="h-4 w-4" />,
   },
@@ -43,7 +37,6 @@ function App() {
     <div className="min-h-screen bg-background">
       <Navbar />
       <Hero />
-      <ValueProps />
       <HowItWorks />
       <CTA />
       <Footer />

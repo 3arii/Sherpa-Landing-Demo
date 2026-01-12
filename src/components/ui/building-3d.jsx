@@ -1,5 +1,6 @@
-function Building({ x, width, floors, windowsPerFloor, isHovered, delay = 0 }) {
+function Building({ x, width, floors, windowsPerFloor, isHovered, isSubmitted, delay = 0 }) {
   const windowCount = floors * windowsPerFloor
+  const lightsOn = isHovered || isSubmitted
 
   return (
     <div
@@ -8,7 +9,7 @@ function Building({ x, width, floors, windowsPerFloor, isHovered, delay = 0 }) {
         left: `${x}%`,
         width: `${width}%`,
         height: `${floors * 12 + 8}%`,
-        willChange: isHovered ? 'auto' : 'auto',
+        willChange: lightsOn ? 'auto' : 'auto',
       }}
     >
       {/* Building body with apartment-style look */}
@@ -25,9 +26,9 @@ function Building({ x, width, floors, windowsPerFloor, isHovered, delay = 0 }) {
         {Array.from({ length: windowCount }).map((_, index) => (
           <div
             key={index}
-            className={`rounded-sm transition-colors duration-200 ${isHovered ? 'bg-amber-300 shadow-[0_0_8px_rgba(251,191,36,0.6)]' : 'bg-slate-500/70'}`}
+            className={`rounded-sm transition-colors duration-200 ${lightsOn ? 'bg-amber-300 shadow-[0_0_8px_rgba(251,191,36,0.6)]' : 'bg-slate-500/70'}`}
             style={{
-              transitionDelay: isHovered ? `${delay + index * 0.015}s` : '0s',
+              transitionDelay: lightsOn ? `${delay + index * 0.015}s` : '0s',
             }}
           />
         ))}
@@ -39,7 +40,7 @@ function Building({ x, width, floors, windowsPerFloor, isHovered, delay = 0 }) {
   )
 }
 
-export function Building3D({ isHovered = false }) {
+export function Building3D({ isHovered = false, isSubmitted = false }) {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {/* Evening sky gradient */}
@@ -56,10 +57,10 @@ export function Building3D({ isHovered = false }) {
       </div>
 
       {/* Apartment buildings - taller but still apartment-style */}
-      <Building x={2} width={20} floors={5} windowsPerFloor={4} isHovered={isHovered} delay={0.2} />
-      <Building x={25} width={22} floors={6} windowsPerFloor={5} isHovered={isHovered} delay={0} />
-      <Building x={50} width={18} floors={5} windowsPerFloor={4} isHovered={isHovered} delay={0.1} />
-      <Building x={72} width={24} floors={6} windowsPerFloor={5} isHovered={isHovered} delay={0.05} />
+      <Building x={2} width={20} floors={5} windowsPerFloor={4} isHovered={isHovered} isSubmitted={isSubmitted} delay={0.2} />
+      <Building x={25} width={22} floors={6} windowsPerFloor={5} isHovered={isHovered} isSubmitted={isSubmitted} delay={0} />
+      <Building x={50} width={18} floors={5} windowsPerFloor={4} isHovered={isHovered} isSubmitted={isSubmitted} delay={0.1} />
+      <Building x={72} width={24} floors={6} windowsPerFloor={5} isHovered={isHovered} isSubmitted={isSubmitted} delay={0.05} />
 
       {/* Ground/street */}
       <div className="absolute bottom-0 left-0 right-0 h-4 bg-slate-800" />

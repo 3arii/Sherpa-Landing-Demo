@@ -1,28 +1,22 @@
 import { MagicCard } from '@/components/ui/magic-card'
-import { Users, Shield, Clock } from 'lucide-react'
+import { Workflow, Zap, Settings } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 const features = [
   {
-    icon: Users,
-    title: 'Pre-Screened Tenants',
-    description: 'Every tenant is vetted for credit, income, rental history, and background before reaching you.',
-    stat: '100%',
-    statLabel: 'Pre-Screened',
+    icon: Workflow,
+    title: 'Custom Workflows',
+    description: 'We design and build automation workflows tailored specifically to your real estate operations and processes.',
   },
   {
-    icon: Shield,
-    title: 'Verified & Qualified',
-    description: 'We verify employment, references, and rental history to ensure only quality applicants.',
-    stat: '3x*',
-    statLabel: 'Higher Close Rate',
+    icon: Zap,
+    title: 'Seamless Integration',
+    description: 'Connect your existing tools—CRM, email, calendars, and property management software—into one unified system.',
   },
   {
-    icon: Clock,
-    title: 'Fast Placement',
-    description: 'Fill vacancies faster with our network of ready-to-move tenants actively searching.',
-    stat: '48h*',
-    statLabel: 'Avg. Time to First Lead',
+    icon: Settings,
+    title: 'Hands-Off Operation',
+    description: 'Once set up, your workflows run automatically, freeing you to focus on closing deals and growing your business.',
   }
 ]
 
@@ -60,10 +54,10 @@ export default function ValueProps() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Why Property Managers Choose Sherpa
+            Why Real Estate Pros Choose Sherpa
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            We handle the hard work of finding quality tenants so you can focus on managing your properties.
+            We handle the technical work of building automations so you can focus on what matters—your clients and properties.
           </p>
         </motion.div>
 
@@ -93,31 +87,15 @@ export default function ValueProps() {
                     {feature.title}
                   </h3>
 
-                  <p className="text-muted-foreground leading-relaxed grow mb-6">
+                  <p className="text-muted-foreground leading-relaxed grow">
                     {feature.description}
                   </p>
-
-                  <div className="pt-4 border-t border-border/50">
-                    <motion.div
-                      className="text-3xl font-bold text-primary"
-                      initial={{ opacity: 0, scale: 0.5 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.3 + index * 0.1, type: "spring", stiffness: 200 }}
-                    >
-                      {feature.stat}
-                    </motion.div>
-                    <div className="text-sm text-muted-foreground mt-1">
-                      {feature.statLabel}
-                    </div>
-                  </div>
                 </div>
               </MagicCard>
             </motion.div>
           ))}
         </motion.div>
 
-        <p className="text-xs text-muted-foreground text-center mt-8">*Based on average results</p>
       </div>
     </section>
   )

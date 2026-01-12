@@ -62,7 +62,7 @@ export default function CTA() {
   return (
     <section id="contact" className="min-h-screen relative overflow-hidden bg-slate-900 flex items-center">
       {/* 3D Building Background */}
-      <Building3D isHovered={buttonHovered} />
+      <Building3D isHovered={buttonHovered} isSubmitted={submitted} />
 
       {/* Dark overlay for better form readability */}
       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-slate-900/30 pointer-events-none" />
@@ -119,10 +119,10 @@ export default function CTA() {
                 transition={{ delay: 0.2 }}
               >
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5">
-                  Ready to Fill Your Vacancies?
+                  Ready to Automate Your Workflow?
                 </h2>
                 <p className="text-lg text-slate-300 max-w-xl mx-auto">
-                  Start receiving qualified tenant applications today.
+                  Let's discuss how custom automation can transform your real estate business.
                 </p>
               </motion.div>
 
@@ -269,7 +269,7 @@ export default function CTA() {
                       viewport={{ once: true }}
                       transition={{ delay: 0.7 }}
                     >
-                      Start receiving tenant applications within days.
+                      We'll reach out to discuss your automation needs.
                     </motion.p>
                   </motion.form>
                 )}
