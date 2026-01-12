@@ -29,7 +29,7 @@ function Navbar() {
 
 function App() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="h-screen overflow-y-auto snap-y snap-mandatory bg-background">
       <Navbar />
       <Hero />
       <HowItWorks />

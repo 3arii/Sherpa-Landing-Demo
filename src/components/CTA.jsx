@@ -60,7 +60,7 @@ export default function CTA() {
   }
 
   return (
-    <section id="contact" className="min-h-screen relative overflow-hidden bg-slate-900 flex items-center">
+    <section id="contact" className="min-h-screen relative overflow-hidden bg-slate-900 flex items-center snap-start snap-always">
       {/* 3D Building Background */}
       <Building3D isHovered={buttonHovered} isSubmitted={submitted} />
 

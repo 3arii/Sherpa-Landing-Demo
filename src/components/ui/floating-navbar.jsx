@@ -1,10 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import {
   motion,
   AnimatePresence,
-  useScroll,
-  useMotionValueEvent,
 } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -13,32 +11,19 @@ export const FloatingNav = ({
   className,
   logo,
 }) => {
-  const { scrollYProgress } = useScroll();
-  const [visible, setVisible] = useState(true);
-
-  useMotionValueEvent(scrollYProgress, "change", (current) => {
-    if (typeof current === "number") {
-      let direction = current - scrollYProgress.getPrevious();
-
-      if (scrollYProgress.get() < 0.05) {
-        setVisible(true);
-      } else {
-        if (direction < 0) {
-          setVisible(true);
-        } else {
-          setVisible(false);
-        }
-      }
-    }
-  });
+  const handleNavClick = (e, link) => {
+    e.preventDefault();
+    const targetId = link.replace('#', '');
+    document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <AnimatePresence mode="wait">
       <motion.div
         initial={{ opacity: 1, y: -100 }}
         animate={{
-          y: visible ? 0 : -100,
-          opacity: visible ? 1 : 0,
+          y: 0,
+          opacity: 1,
         }}
         transition={{ duration: 0.2 }}
         className={cn(
@@ -52,24 +37,24 @@ export const FloatingNav = ({
           </a>
         )}
         {navItems.map((navItem, idx) => (
-          <a
+          <button
             key={`link=${idx}`}
-            href={navItem.link}
+            onClick={(e) => handleNavClick(e, navItem.link)}
             className={cn(
               "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
             )}
           >
             <span className="block sm:hidden">{navItem.icon}</span>
             <span className="hidden sm:block text-sm">{navItem.name}</span>
-          </a>
+          </button>
         ))}
-        <a
-          href="#contact"
+        <button
+          onClick={(e) => handleNavClick(e, '#contact')}
           className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
         >
           <span>Get Started</span>
           <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-linear-to-r from-transparent via-cyan-500 to-transparent h-px" />
-        </a>
+        </button>
       </motion.div>
     </AnimatePresence>
   );

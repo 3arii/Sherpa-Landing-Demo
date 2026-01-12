@@ -9,7 +9,7 @@ const automationBenefits = ["Seamless", "Automated", "Efficient", "Smart", "Cust
 export default function Hero() {
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden snap-start snap-always"
       style={{
         backgroundImage: "url('https://images.pexels.com/photos/259950/pexels-photo-259950.jpeg')",
         backgroundSize: "cover",
@@ -96,8 +96,8 @@ export default function Hero() {
       </div>
 
       {/* Scroll Hint - positioned relative to section, not content */}
-      <motion.a
-        href="#how-it-works"
+      <motion.button
+        onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -110,7 +110,7 @@ export default function Hero() {
         >
           <ChevronDown className="w-6 h-6" />
         </motion.div>
-      </motion.a>
+      </motion.button>
     </section>
   )
 }

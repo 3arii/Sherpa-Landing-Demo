@@ -1,4 +1,4 @@
-import { MessageSquare, Cog, Rocket } from 'lucide-react'
+import { MessageSquare, Cog, Rocket, ChevronDown } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { AuroraBackground } from '@/components/ui/aurora-background'
 
@@ -62,7 +62,7 @@ const stepVariants = {
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="min-h-screen overflow-hidden">
+    <section id="how-it-works" className="min-h-screen overflow-hidden snap-start snap-always relative">
       <AuroraBackground className="min-h-screen py-24 md:py-32">
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
@@ -122,6 +122,24 @@ export default function HowItWorks() {
           </motion.div>
 
         </div>
+
+        {/* Scroll Hint */}
+        <motion.button
+          onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+        >
+          <span className="text-sm font-medium">Get Started</span>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <ChevronDown className="w-6 h-6" />
+          </motion.div>
+        </motion.button>
       </AuroraBackground>
     </section>
   )
