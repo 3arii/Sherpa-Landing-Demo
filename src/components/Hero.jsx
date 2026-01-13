@@ -65,22 +65,26 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <a href="#contact">
-              <ShimmerButton
-                className="h-14 px-8 text-lg font-semibold"
-                shimmerColor="#ffffff"
-                shimmerSize="0.1em"
-                background="linear-gradient(135deg, #1e293b 0%, #334155 100%)"
-              >
-                <span className="flex items-center gap-2">
-                  Automate Your Workflow
-                  <ArrowRight className="w-5 h-5" />
-                </span>
-              </ShimmerButton>
-            </a>
+            <ShimmerButton
+              className="h-14 px-8 text-lg font-semibold"
+              shimmerColor="#ffffff"
+              shimmerSize="0.1em"
+              background="linear-gradient(135deg, #1e293b 0%, #334155 100%)"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              <span className="flex items-center gap-2">
+                Automate Your Workflow
+                <ArrowRight className="w-5 h-5" />
+              </span>
+            </ShimmerButton>
 
-            <Button variant="outline" size="lg" className="h-14 px-8 text-lg font-semibold group bg-white/50" asChild>
-              <a href="#how-it-works" className="flex items-center gap-2">
+            <Button
+              variant="outline"
+              size="lg"
+              className="h-14 px-8 text-lg font-semibold group bg-white/50"
+              onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              <span className="flex items-center gap-2">
                 See How It Works
                 <motion.span
                   animate={{ x: [0, 5, 0] }}
@@ -88,7 +92,7 @@ export default function Hero() {
                 >
                   →
                 </motion.span>
-              </a>
+              </span>
             </Button>
           </motion.div>
 

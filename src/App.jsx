@@ -33,8 +33,10 @@ function App() {
       <Navbar />
       <Hero />
       <HowItWorks />
-      <CTA />
-      <Footer />
+      <div className="snap-start">
+        <CTA />
+        <Footer />
+      </div>
     </div>
   )
 }
